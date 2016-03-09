@@ -3,9 +3,12 @@
 import random
 
 
-class InsufficientDataException(BaseException):
+class DataException(BaseException):
     def __init__(self):
-        super(InsufficientDataException, self).__init__()
+        super(DataException, self).__init__()
+
+    def well(self):
+        pass
 
 
 class GeneticalOptimizer(object):
@@ -17,7 +20,7 @@ class GeneticalOptimizer(object):
 
         super(GeneticalOptimizer, self).__init__()
         if len(initial_population) < 2:
-            raise InsufficientDataException("Not enough unit to breed.")
+            raise DataException("Not enough unit to breed.")
 
         self.weight_function = weight_function
         self.breeding_function = breeding_function
